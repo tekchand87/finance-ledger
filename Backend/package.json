@@ -1,0 +1,27 @@
+{
+  "name": "finance-ledger",
+  "version": "1.0.0",
+  "description": "Finance ledger backend built with Node.js, Express, MongoDB, JWT authentication, and Nodemailer email verification.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tekchand87/finance-ledger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tekchand87/finance-ledger/issues"
+  },
+  "homepage": "https://github.com/tekchand87/finance-ledger#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
