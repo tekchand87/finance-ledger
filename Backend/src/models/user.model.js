@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
 const userSchema = new mongoose.Schema({
-  name : {
+  username : {
     type : String,
     required : [true,"username is required"]
   },
@@ -18,14 +18,18 @@ const userSchema = new mongoose.Schema({
     type : String,
     required : [true,"password is required"],
     minlength :[6,"password length must be minmum length 6"],
-    select : false
+    //select : false
+  },
+  verified : {
+    type : String,
+    default : false
   }
 },{
   timestamps : true
 })
 
 
-userSchmea.pre("save",async function(){
+userSchema.pre("save",async function(){
   if(!this.isModified("password")){
     return ;
   }
