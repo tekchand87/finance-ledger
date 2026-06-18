@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   email : {
     type : String,
     required : [true,"Email is required"],
-    unique : [true, "Email already exist"],
+    unique : [true, "Email already must be unique"],
     trim : true,
     lowercase : true,
     match : [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/]
@@ -18,10 +18,10 @@ const userSchema = new mongoose.Schema({
     type : String,
     required : [true,"password is required"],
     minlength :[6,"password length must be minmum length 6"],
-    //select : false
+    select : false
   },
   verified : {
-    type : String,
+    type : Boolean,
     default : false
   }
 },{
@@ -31,9 +31,8 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save",async function(){
   if(!this.isModified("password")){
-    return ;
+    return 
   }
-
   const hash = await bcrypt.hash(this.password,10)
 
   this.password = hash;
